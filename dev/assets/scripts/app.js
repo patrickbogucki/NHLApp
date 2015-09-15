@@ -1,1 +1,1 @@
-var app = angular.module("NHLApp", ['ngRoute']);
+var app = angular.module('NHLApp', ['ngRoute']);
