@@ -7,8 +7,8 @@ app.config(function($routeProvider) {
 			templateUrl: 'dev/assets/scripts/views/main.html'
 		})
 		.when('/:teamID', {
-			controller: 'MainController',
-			templateUrl: 'dev/assets/scripts/views/main.html'
+			controller: 'TeamController',
+			templateUrl: 'dev/assets/scripts/views/team.html'
 		})
 		.otherwise({
 			redirectTo: '/'
