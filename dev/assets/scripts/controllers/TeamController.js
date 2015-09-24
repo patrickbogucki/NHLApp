@@ -3,11 +3,13 @@ app.controller('TeamController', ['$scope', '$routeParams', '$location', 'teams'
 	checkTeamIDExists();
 
 	teamRoster.then(function(data) {
-		$scope.teamRoster = data;
+		console.log(data.data.goalie[0].name);
+		$scope.teamRoster = data.data;
 	});
 
 	function checkTeamIDExists () {
 		$scope.teamID = $routeParams.teamID;
+				console.log($scope.teamID);
 		teams.then(function(data) {	
 		var teamIDs = data;
 		for(var i = 0; i < teamIDs.length; i++) {
