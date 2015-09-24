@@ -1,4 +1,4 @@
-var app = angular.module('NHLApp', ['ngRoute']);
+var app = angular.module('NHLApp', ['ngRoute', 'ngResource']);
 
 app.config(function($routeProvider) {
 	$routeProvider
