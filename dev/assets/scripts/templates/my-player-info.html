@@ -1,0 +1,34 @@
+<div class="player-name">{{ player.name }}</div>
+<div class="player-number">{{ player.number }}</div>
+<ul class="player-info">
+	<li>
+		<div class="player-birthdate">
+			 Birthdate: {{ player.birthdate }} 
+		</div>
+	</li>
+	<li>
+		<div class="player-age">
+			 Age: {{ player.age }} 
+		</div>
+	</li>
+	<li>
+		<div class="player-birthplace">
+			 Birthplace {{ player.birthplace }} 
+		</div>
+	</li>
+	<li>
+		<div class="player-height">
+			 Height: {{ player.height }} 
+		</div>
+	</li>
+	<li>
+		<div class="player-weight">
+			 Weight: {{ player.weight }} 
+		</div>
+	</li>
+	<li>
+		<div class="player-twitter">
+			<a ng-href="{{ player.twitterURL }}"> {{ player.twitterHandle }} </a>
+		</div>
+	</li>
+</ul>

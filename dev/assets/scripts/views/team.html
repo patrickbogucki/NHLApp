@@ -1,19 +1,20 @@
 <h1>{{ teamName }}</h1>
+<a ng-href="#/">Go Back To Teams List</a>
 <h2>Goalies</h2>
-<div class="goalie">
+<div class="goalies">
 	<div class="player" ng-repeat="player in teamRoster.goalie">
-		{{ player.name }}
+	<my-player-info player="player"></my-player-info>
 	</div>
 </div>
 <h2>Forwards</h2>
 <div class="forewards">
 	<div class="player" ng-repeat="player in teamRoster.forwards">
-		{{ player.name }}
+		<my-player-info player="player"></my-player-info>
 	</div>
 </div>
 <h2>Defensemen</h2>
 <div class="defensemen">
 	<div class="player" ng-repeat="player in teamRoster.defensemen">
-		{{ player.name }}
+		<my-player-info player="player"></my-player-info>	
 	</div>
 </div>
