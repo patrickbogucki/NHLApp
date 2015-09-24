@@ -4,7 +4,7 @@ app.controller('MainController', ['$scope', 'teams' ,function($scope, teams) {
 
 	function getTeams() {
 		teams.then(function(data) {
-			$scope.teams = data.data;
+			$scope.teams = data;
 		});
 	}
 }]);
