@@ -1,9 +1,8 @@
 app.factory('teams', ['$http', function($http) {
-	return $http.get('http://www.nicetimeonice.com/api/teams')
-		.success(function(data) {
+	return $http.get('http://crossorigin.me/http://www.nicetimeonice.com/api/teams')
+		.then(function(data) {
 			return data;
-		})
-		.error(function(err) {
+		}, function(err) {
 			return err;
 		});
 }]);
