@@ -1,11 +1,18 @@
-app.controller('TeamController', ['$scope', '$routeParams', '$location', '$resource', 'teams', 'teamRoster', function($scope, $routeParams, $location, $resource, teams, teamRoster) {
+app.controller('TeamController', ['$scope', '$routeParams', '$location', '$http', 'teams', 'teamRoster', function($scope, $routeParams, $location, $http, teams, teamRoster) {
 	
 	checkTeamIDExists();
 
-	// Find way to put into factory
-	$scope.teamRoster = $resource('http://crossorigin.me/http://nhlwc.cdnak.neulion.com/fs1/nhl/league/teamroster/' + $routeParams.teamID + '/iphone/clubroster.json').get();
+	teamRoster.getTeamRoster((function(data) {
+		$scope.teamRoster = data;
+		updatePlayersImageUrl($scope.teamRoster.goalie);
+		updatePlayersImageUrl($scope.teamRoster.forwards);
+		updatePlayersImageUrl($scope.teamRoster.defensemen);
+	
+	}));
 
-	function checkTeamIDExists () {
+
+
+	function checkTeamIDExists() {
 		$scope.teamID = $routeParams.teamID;
 				console.log($scope.teamID);
 		teams.then(function(data) {	
@@ -19,6 +26,13 @@ app.controller('TeamController', ['$scope', '$routeParams', '$location', '$resou
 		});	
 	}
 	
-	
+	// Changes linked image to use images from NHL site with transperant
+	// backgrounds
+	function updatePlayersImageUrl(position) {
+		position.forEach(function(element, index) {
+			var newImageUrl = "http://cdn.nhle.com/photos/mugs-silo-stats/" + element.id + ".png";
+			element.imageUrl = newImageUrl;
+		});
+	}
 
 }]);
