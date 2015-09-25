@@ -1,7 +1,8 @@
 <div class="player-name">{{ player.name }}</div>
 <div class="player-number">{{ player.number }}</div>
 <div class="player-picture">
-	<img ng-src="{{ player.imageUrl || 'http://pngimg.com/upload/pumpkin_PNG9387.png'}}" alt="">
+	<img ng-src="{{ player.imageUrl }}" on-error-src="http://files.onlyimage.com/premium/thumbs/108/cute-young-boy-making-a-funny-face_108869624.jpg" alt="">
+	<!-- <img ng-src="{{ player.imageUrl }}" on-error-src="http://1.cdn.nhle.com/photos/mugs/8477642.jpg" alt=""> -->
 </div>
 <ul class="player-info">
 	<li>

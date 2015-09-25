@@ -14,15 +14,19 @@ app.controller('TeamController', ['$scope', '$routeParams', '$location', '$http'
 
 	function checkTeamIDExists() {
 		$scope.teamID = $routeParams.teamID;
-				console.log($scope.teamID);
 		teams.then(function(data) {	
-		var teamIDs = data;
-		for(var i = 0; i < teamIDs.length; i++) {
-			if($scope.teamID === teamIDs[i].teamID) {
-				return;
+		var teams = data.data;
+		var teamIDIsValid = false;
+		for(var i = 0; i < teams.length; i++) {
+			if($scope.teamID === teams[i].teamID) {
+				teamIDIsValid = true;
+				$scope.selectedTeam = teams[i];
+				break; 
 			}
-		}	
-		$location.path('/');
+		}
+		if(!teamIDIsValid) {
+			$location.path('/');
+		}
 		});	
 	}
 	
