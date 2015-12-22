@@ -1,2 +1,5 @@
 <h2>{{ title }}</h2>
-<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teams"> {{ team.name }} <br> </a>
+
+<div class="content">
+	<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teams"> <p>{{ team.name }}</p> <br> </a>	
+</div>

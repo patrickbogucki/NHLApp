@@ -1,11 +1,48 @@
+$bg-color: #2b303b;
+$bg-color-team: #39495f;
+$font-stack: Helvetica, sans-serif;
+$team-width: 300px;
+$team-height: 150px;
+$team-margin: 20px;
+$teams-per-row: 4;
+$team-container-width: ($team-width * $teams-per-row) + ($team-margin * (2 * $teams-per-row));
+
 html {
-	
+	background-color:  $bg-color;
+	font-family: $font-stack;
+	color: #FFFFFF;
+	a {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
 }
 
 body {
-	
+	margin: 0px;
 }
 
-.title {
-	color: blue;
+.banner {
+	width: 100%;
+	height: 40px;
+	background-color: #80cbc4;
+}
+
+.container {
+	width: $team-container-width;
+	margin: 0 auto;	
+}
+
+.team {
+	display: inline-block;
+	position: relative;
+	width: $team-width;
+	height: $team-height;
+	margin: $team-margin;
+	background-color: $bg-color-team;
+	p {
+		position: absolute;
+		bottom: 0px;
+		right: 20px;
+		font-size: 18pt;
+	}
 }
