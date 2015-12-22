@@ -1,5 +1,10 @@
 <h2>{{ title }}</h2>
 
 <div class="content">
-	<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teams"> <p>{{ team.name }}</p> <br> </a>	
+	<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teams"> 
+		<img src="https://upload.wikimedia.org/wikipedia/en/3/3a/Vancouver_Canucks_logo.svg">
+		<p class="team-name">{{ team.name }}</p>
+		<br> 
+		<p class="team-stats">W: 10 L: 11 OTL: 4 PTS: 20</p>
+	</a>	
 </div>

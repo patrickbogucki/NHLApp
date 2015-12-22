@@ -39,10 +39,32 @@ body {
 	height: $team-height;
 	margin: $team-margin;
 	background-color: $bg-color-team;
-	p {
+	overflow: hidden;
+	img {
 		position: absolute;
-		bottom: 0px;
-		right: 20px;
-		font-size: 18pt;
+		left: -30%;
+		top: 0;
+		width: 100%;
+		height: $team-height * 1.15;
+		opacity: 0.6;
 	}
+	&:hover {
+		img {
+			opacity: 1;
+		}
+	}
+}
+
+.team-name {
+	position: absolute;
+	bottom: 15px;
+	right: 20px;
+	font-size: 18pt;
+}
+
+.team-stats {
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+	font-size: 10pt;
 }
