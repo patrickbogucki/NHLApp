@@ -1,5 +1,7 @@
 $bg-color: #2b303b;
 $bg-color-team: #39495f;
+$banner-color: #2D615C;
+$team-banner-color: #2D615C;
 $font-stack: Helvetica, sans-serif;
 $team-width: 300px;
 $team-height: 150px;
@@ -24,7 +26,7 @@ body {
 .banner {
 	width: 100%;
 	height: 40px;
-	background-color: #80cbc4;
+	background-color: $banner-color;
 }
 
 .container {
@@ -58,8 +60,12 @@ body {
 .team-name {
 	position: absolute;
 	bottom: 15px;
-	right: 20px;
+	right: 0px;
+	padding-right: 20px;
 	font-size: 18pt;
+	width: 100%;
+	background-color: $team-banner-color;
+	text-align: right;
 }
 
 .team-stats {
