@@ -2,17 +2,31 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var db = require('./database.js');
+var requestify = require('requestify');
 
-app.use(express.static(path.join(__dirname, '..', '..')));
-
-app.get('/', function (req, res) {
-	res.sendFile(path.join('..', '..', '/index.html'));
+app.get('/',function(req, res, next) {
+	// db.selectUsers;
+	console.log(path.join("TESTing"));
+	next();
 });
 
-app.get('/addUser', function (req, res) {
-	db.addUser("Dave");
-	res.redirect('/');
+app.get('/api/teams', function (req, res) {
+	requestify.get('http://www.nicetimeonice.com/api/teams')
+	.then(function(response) {
+		res.send(response.getBody());
+	});
+
 });
+
+app.get('/api/teamsDetailed', function (req, res) {
+	requestify.get('http://www.nicetimeonice.com/api/teams')
+	.then(function(response) {
+		res.send(response.getBody());
+	});
+
+});
+
+app.use("/", express.static(path.join(__dirname, '..', '..')));
 
 app.listen(3000, function () {
 	console.log('Example app listening on port 3000');

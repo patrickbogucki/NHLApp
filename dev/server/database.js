@@ -4,19 +4,21 @@ var cn = {
     port: 5432,
     database: 'nhlapp',
     user: 'patrickbogucki',
-    // password: ''
+    password: 'root'
 };
 var db = pgp(cn);
 
-exports.selectUsers = function() {
+exports.selectUsers = function(req, res) {
     db.query("SELECT * FROM users")
         .then(function (data) {
-            console.log("Users", data[0].username);
+            console.log("Users", data);
+            return res.send( data);
         })
         .catch(function (error) {
             console.log("ERROR:", error);
         });
 };
+
 
 exports.addUser = function(userName) {
     db.none("INSERT INTO users(username) VALUES($1)", [userName])
