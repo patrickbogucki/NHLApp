@@ -1,5 +1,9 @@
-app.controller('MainController', ['$scope', 'teams', 'teamsDetailed' ,function($scope, teams, teamsDetailed) {
+app.controller('MainController',
+ ['$scope', 'teams', 'teamsDetailed', 'teamLogos',
+ function($scope, teams, teamsDetailed, teamLogos) {
+	
 	$scope.title = "Teams";
+
 	function getTeams() {
 		teams.then(function(teamsData) {
 			$scope.teams = teamsData.data;
@@ -20,6 +24,11 @@ app.controller('MainController', ['$scope', 'teams', 'teamsDetailed' ,function($
 			$scope.teamsDetailed = data;
 		});
 	}
+
+	$scope.getTeamLogoImgSrc = function (teamName) {
+		return teamLogos.getTeamLogoImgSrc(teamName);
+	};
+
 	getTeams();
 	getTeamsDetailed();
 }]);
