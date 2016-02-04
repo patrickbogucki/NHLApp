@@ -3,10 +3,10 @@ app.controller('MainController', ['$scope', 'teams', 'teamsDetailed' ,function($
 	function getTeams() {
 		teams.then(function(teamsData) {
 			$scope.teams = teamsData.data;
-			teamsDetailed.then(function(TeamsDetailedData) {
-				$scope.teamsDetailed = TeamsDetailedData;
-				TeamsDetailedData.teams = teamsData.data;
-				for  (var item = 0; item <  TeamsDetailedData.standings["info-teams"]["team-standing"].length; item++) {
+			teamsDetailed.then(function(teamsDetailedData) {
+				$scope.teamsDetailed = teamsDetailedData;
+				teamsDetailedData.teams = teamsData.data;
+				for  (var item = 0; item <  teamsDetailedData.data.standings["info-teams"][0]["team-standing"].length; item++) {
 				}
 			});
 		})
