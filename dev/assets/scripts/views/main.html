@@ -5,6 +5,6 @@
 		<img ng-src="{{ getTeamLogoImgSrc(team.$.fullName) }}">
 		<p class="team-name">{{ team.$.fullName }}</p>
 		<br> 
-		<p class="team-stats">W: 10 L: 11 OTL: 4 PTS: 20</p>
+		<p class="team-stats">W: {{ team.$.wins }} L: {{ team.$.losses }} OT: {{ team.$.overtime }} PTS: {{ team.$.points }}</p>
 	</a>	
 </div>
