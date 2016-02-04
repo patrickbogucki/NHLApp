@@ -4,12 +4,14 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var nodemon  = require('gulp-nodemon');
 
-gulp.task('browser-sync',  ['nodemon'], function() {
+// Starts a web server on a port, using the proxy
+// to connect to the express server started by nodemon
+gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
     proxy: "http://localhost:3000",
-    files: ["./"],
     browser: "google chrome",
     port: 7000,
+    notify: true
     });
 });
 
@@ -33,25 +35,35 @@ gulp.task('deploy', function() {
 	// minify, uglify, concatenate, move files
 	});
 
+// Reloads server when any updates occur
+// in the server folder. Then reloads the
+// browser after some time
 gulp.task('nodemon', function (cb) {
-  
-  var started = false;
-  
+  var called = false;
   return nodemon({
-    script: 'dev/server/app.js'
-  }).on('start', function () {
-    // to avoid nodemon being started multiple times
-    // thanks @matthisk
-    if (!started) {
+    script: 'dev/server/app.js',
+    watch: [
+      'dev/server/*'
+    ]
+  })
+  .on('start', function () {
+    if (!called) {
+      called = true;
       cb();
-      started = true; 
-    } 
+    }
+  })
+  .on('restart', function () {
+    setTimeout(function () {
+      browserSync.reload({ stream: false });
+    }, 1000);
   });
 });
 
+// Watches only client side files and reloads browser
+// if there are any changes
 gulp.task('default', ['browser-sync'], function(){
-  gulp.watch("./dev/**/*.html", ['bs-reload']);
-  gulp.watch("./dev/**/*.scss", ['styles']);
-  gulp.watch("./dev/**/*.js", ['bs-reload']);
+  gulp.watch("./dev/assets/**/*.html", ['bs-reload']);
+  gulp.watch("./dev/assets/**/*.scss", ['styles']);
+  gulp.watch("./dev/assets/**/*.js", ['bs-reload']);
   gulp.watch("*.html", ['bs-reload']);
 });
