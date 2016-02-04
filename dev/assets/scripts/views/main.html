@@ -1,10 +1,16 @@
 <h2>{{ title }}</h2>
 
 <div class="content">
-	<a  ng-href="#/{{ team.$.teamID }}" class="team" ng-repeat="team in teamsWithStats | orderBy: '$.fullName'"> 
+	<h2>SORT BY:</h2>
+	<div>
+		<button ng-click="order('$.fullName')">NAME</button>	
+		<button ng-click="order('-$.wins')">WINS</button>	
+		<button ng-click="order('-$.points')">POINTS</button>
+	</div>
+	<a  ng-href="#/{{ team.$.teamID }}" class="team" ng-repeat="team in teamsWithStats | orderBy:predicate:reverse"> 
 		<img ng-src="{{ getTeamLogoImgSrc(team.$.fullName) }}">
-		<p class="team-name">{{ team.$.fullName }}</p>
+		<div class="team-name">{{ team.$.fullName }}</div>
 		<br> 
-		<p class="team-stats">W: {{ team.$.wins }} L: {{ team.$.losses }} OT: {{ team.$.overtime }} PTS: {{ team.$.points }}</p>
+		<div class="team-stats">W: {{ team.$.wins }} L: {{ team.$.losses }} OT: {{ team.$.overtime }} PTS: {{ team.$.points }}</div>
 	</a>	
 </div>

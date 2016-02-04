@@ -11,6 +11,8 @@ app.controller('TeamController', ['$scope', '$location', 'teams', 'teamRoster', 
 		$location.path('/');
 	});
 
+	teamRoster.loadTeamStats();
+	
 	// Changes linked image to use images from NHL site with transperant
 	// backgrounds
 	function updatePlayersImageUrl(position) {
@@ -19,5 +21,10 @@ app.controller('TeamController', ['$scope', '$location', 'teams', 'teamRoster', 
 			element.imageUrl = newImageUrl;
 		});
 	}
+
+	$scope.stats = function(player) {
+		console.log(teamRoster.getTeamStats()[0].Min);
+		player.points = teamRoster.getTeamStats()[0].Min;
+	};
 
 }]);

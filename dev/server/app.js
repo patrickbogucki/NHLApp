@@ -36,7 +36,16 @@ app.get('/api/teamRoster/:teamID', function(req, res, next) {
 	});
 });
 
-
+app.get('/api/teamRosterStats/:teamID', function(req, res) {
+	var teamID = req.params.teamID;
+	requestify.get('http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/20152016/2/' + teamID + '/iphone/playerstatsline.json')
+	.then(function(response) {
+		res.status(200).json(response.getBody());
+	})
+	.catch(function(data) {
+		res.status(404).send("Error");
+	});
+});
 
 // Catches all requests for pages requesting the backend
 // and not routing through angular ie after /#/...

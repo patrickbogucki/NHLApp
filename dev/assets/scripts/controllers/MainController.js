@@ -3,6 +3,12 @@ app.controller('MainController',
  function($scope, teams, teamsDetailed, teamLogos) {
 	
 	$scope.title = "Teams";
+	$scope.predicate = '$.fullName';
+	$scope.reverse = false;
+	$scope.order = function(predicate) {
+		$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+		$scope.predicate = predicate;
+	};
 
 	var NYI = {
 		name : "NY Islanders",
@@ -51,7 +57,7 @@ app.controller('MainController',
 	}
 
 	function scanTeamsAndAssignFullNameandIDToTeamsWithStats(arrayTeamsWithStats, teamsData) {
-		
+
 	}
 
 	function teamsMatch(teamWithStats, team) {
@@ -76,16 +82,9 @@ app.controller('MainController',
 		teamwithStats.$.teamID = team.teamID;
 	}
 
-	function getTeamsDetailed() {
-		teamsDetailed.then(function(data) {
-			$scope.teamsDetailed = data;
-		});
-	}
-
 	$scope.getTeamLogoImgSrc = function (teamName) {
 		return teamLogos.getTeamLogoImgSrc(teamName);
 	};
 
 	getTeams();
-	getTeamsDetailed();
 }]);

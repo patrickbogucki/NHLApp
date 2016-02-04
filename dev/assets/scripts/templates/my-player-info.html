@@ -1,6 +1,7 @@
 <div class="player-name">{{ player.name }}</div>
 <div class="player-number">{{ player.number }}</div>
 <div class="player-picture">
+<button ng-click="stats(player)">FUNCTION</button>
 	<img ng-src="{{ player.imageUrl }}" on-error-src="http://files.onlyimage.com/premium/thumbs/108/cute-young-boy-making-a-funny-face_108869624.jpg" alt="">
 	<!-- <img ng-src="{{ player.imageUrl }}" on-error-src="http://1.cdn.nhle.com/photos/mugs/8477642.jpg" alt=""> -->
 </div>
@@ -33,6 +34,11 @@
 	<li>
 		<div class="player-twitter">
 			<a ng-href="{{ player.twitterURL }}"> {{ player.twitterHandle }} </a>
+		</div>
+	</li>
+	<li>
+		<div>
+			{{ player.points }}
 		</div>
 	</li>
 </ul>
