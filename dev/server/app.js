@@ -3,10 +3,10 @@ var app = express();
 var path = require('path');
 var db = require('./database.js');
 var requestify = require('requestify');
+var xmlParser = require('xml2js').parseString;
 
 app.get('/',function(req, res, next) {
-	// db.selectUsers;
-	console.log(path.join("TESTing"));
+	console.log(path.join("TESTING"));
 	next();
 });
 
@@ -19,9 +19,11 @@ app.get('/api/teams', function (req, res) {
 });
 
 app.get('/api/teamsDetailed', function (req, res) {
-	requestify.get('http://www.nicetimeonice.com/api/teams')
+	requestify.get('http://www.tsn.ca/datafiles/XML/NHL/standings.xml')
 	.then(function(response) {
-		res.send(response.getBody());
+		xmlParser(response.body, function(err, result) {
+			res.send(result);
+		});
 	});
 
 });
