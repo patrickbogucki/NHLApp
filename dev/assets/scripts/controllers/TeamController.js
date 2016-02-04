@@ -1,35 +1,16 @@
-app.controller('TeamController', ['$scope', '$routeParams', '$location', '$http', 'teams', 'teamRoster', function($scope, $routeParams, $location, $http, teams, teamRoster) {
-	
-	checkTeamIDExists();
+app.controller('TeamController', ['$scope', '$location', 'teams', 'teamRoster', function($scope, $location, teams, teamRoster) {
 
-	teamRoster.getTeamRoster((function(data) {
-		$scope.teamRoster = data;
+	teamRoster.fetchTeamRoster()
+	.then(function(data) {
+		$scope.teamRoster = data.data;
 		updatePlayersImageUrl($scope.teamRoster.goalie);
 		updatePlayersImageUrl($scope.teamRoster.forwards);
 		updatePlayersImageUrl($scope.teamRoster.defensemen);
-	
-	}));
+	})
+	.catch(function(data) {
+		$location.path('/');
+	});
 
-
-
-	function checkTeamIDExists() {
-		$scope.teamID = $routeParams.teamID;
-		teams.then(function(data) {	
-		var teams = data.data;
-		var teamIDIsValid = false;
-		for(var i = 0; i < teams.length; i++) {
-			if($scope.teamID === teams[i].teamID) {
-				teamIDIsValid = true;
-				$scope.selectedTeam = teams[i];
-				break; 
-			}
-		}
-		if(!teamIDIsValid) {
-			$location.path('/');
-		}
-		});	
-	}
-	
 	// Changes linked image to use images from NHL site with transperant
 	// backgrounds
 	function updatePlayersImageUrl(position) {
