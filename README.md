@@ -10,5 +10,3 @@ https://api.hockeystreams.com/Scores?key=0a491db7c8c525c83ed6bfb240f98e4e
 
 Teams:
 http://www.nicetimeonice.com/api/teams?conference=%20&division=
-
-port: 5432 pass: tryagain13
