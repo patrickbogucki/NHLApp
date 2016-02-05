@@ -9,6 +9,10 @@ app.controller('MainController',
 		$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
 		$scope.predicate = predicate;
 	};
+	$scope.getTeamLogoImgSrc = function (teamName) {
+		return teamLogos.getTeamLogoImgSrc(teamName);
+	};
+
 
 	var NYI = {
 		name : "NY Islanders",
@@ -81,10 +85,6 @@ app.controller('MainController',
 		teamwithStats.$.fullName = team.name;
 		teamwithStats.$.teamID = team.teamID;
 	}
-
-	$scope.getTeamLogoImgSrc = function (teamName) {
-		return teamLogos.getTeamLogoImgSrc(teamName);
-	};
 
 	getTeams();
 }]);

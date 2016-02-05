@@ -3,19 +3,19 @@
 <div>{{ selectedTeam.name }}</div>
 <h2>Goalies</h2>
 <div class="goalies">
-	<div class="player" ng-repeat="player in teamRoster.goalie">
-	<my-player-info player="player" stats="stats(player)"></my-player-info>
+	<div class="player-card" ng-repeat="player in teamRoster.goalie">
+	<my-player-info player="player" get-player-stats="getPlayerStats(playerID)"></my-player-info>
 	</div>
 </div>
 <h2>Forwards</h2>
 <div class="forewards">
-	<div class="player" ng-repeat="player in teamRoster.forwards">
+	<div class="player-card" ng-repeat="player in teamRoster.forwards">
 		<my-player-info player="player"></my-player-info>
 	</div>
 </div>
 <h2>Defensemen</h2>
 <div class="defensemen">
-	<div class="player" ng-repeat="player in teamRoster.defensemen">
+	<div class="player-card" ng-repeat="player in teamRoster.defensemen">
 		<my-player-info player="player"></my-player-info>	
 	</div>
 </div>

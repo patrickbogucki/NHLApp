@@ -3,7 +3,7 @@ app.directive('myPlayerInfo', [function() {
 		restrict: 'E',
 		scope: {
 			player: '=',
-			stats: '&'
+			getPlayerStats: '&'
 		},
 		templateUrl: '/dev/assets/scripts/templates/my-player-info.html'
 	};

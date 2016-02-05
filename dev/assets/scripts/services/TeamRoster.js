@@ -1,3 +1,6 @@
+// "goalieCategories":"#, POS, NAME, GP, W, L, OT, GA, SA, Sv, SV%, GAA, SO, PIM, Min"
+// "skaterCategories":"#, POS, NAME, GP, G, A, P, +/-, PIM, S, TOI/G, PP, SH, GWG, OT"
+
 app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams) {    
     this.fetchTeamRoster = function(){ 
     	return $http.get('/api/teamRoster/' + $routeParams.teamID);
@@ -5,6 +8,10 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
 
     var teamStats = [];
 
+    var playerNull = {};
+
+//TODO: Refactor this mess!
+// Gets stats for all players on the team and creates an array containing player objects with their stats
 	this.loadTeamStats = function() {
 		return $http.get('/api/teamRosterStats/' + $routeParams.teamID).then(function(data) {
 			teamStats = [];
@@ -41,10 +48,19 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
 		});
 	};
 
+//Get player ID and pass back their stats into their panel and apply CSS animation or w/e
 	this.getPlayerStats = function(playerID) {
-
+		for (var index = 0; index < teamStats.length; index++) {
+			if(teamStats[index].id === playerID) {
+				console.log("Found player");
+				return teamStats[index];
+			}
+		}
+		console.log("Player does not exist");
+		return playerNull;
 	};
 
+// To be used so as to retrieve team stats from within controller
 	this.getTeamStats = function() {
 		return teamStats;
 	};

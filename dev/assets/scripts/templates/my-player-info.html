@@ -1,44 +1,35 @@
-<div class="player-name">{{ player.name }}</div>
-<div class="player-number">{{ player.number }}</div>
-<div class="player-picture">
-<button ng-click="stats(player)">FUNCTION</button>
-	<img ng-src="{{ player.imageUrl }}" on-error-src="http://files.onlyimage.com/premium/thumbs/108/cute-young-boy-making-a-funny-face_108869624.jpg" alt="">
-	<!-- <img ng-src="{{ player.imageUrl }}" on-error-src="http://1.cdn.nhle.com/photos/mugs/8477642.jpg" alt=""> -->
+<!-- <button ng-click="getPlayerStats({playerID : player})">FUNCTION</button> -->
+<div class="player-card-left">
+	<img class="player-picture" ng-src="{{ player.imageUrl }}" on-error-src="http://files.onlyimage.com/premium/thumbs/108/cute-young-boy-making-a-funny-face_108869624.jpg" alt="">
+	<div class="player-number">{{ player.number }}</div>
 </div>
-<ul class="player-info">
-	<li>
-		<div class="player-birthdate">
-			 Birthdate: {{ player.birthdate }} 
-		</div>
-	</li>
-	<li>
-		<div class="player-age">
-			 Age: {{ player.age }} 
-		</div>
-	</li>
-	<li>
-		<div class="player-birthplace">
-			 Birthplace {{ player.birthplace }} 
-		</div>
-	</li>
-	<li>
-		<div class="player-height">
-			 Height: {{ player.height }} 
-		</div>
-	</li>
-	<li>
-		<div class="player-weight">
-			 Weight: {{ player.weight }} 
-		</div>
-	</li>
-	<li>
-		<div class="player-twitter">
-			<a ng-href="{{ player.twitterURL }}"> {{ player.twitterHandle }} </a>
-		</div>
-	</li>
-	<li>
-		<div>
-			{{ player.points }}
-		</div>
-	</li>
-</ul>
+<div class="player-card-right">
+	<h3 class="player-name">{{ player.name }}</h3>
+	<h4 class="player-twitter">
+		<img src="https://g.twimg.com/twitter-bird-16x16.png" ng-show="player.twitterHandle !== undefined">
+		<a ng-href="{{ player.twitterURL }}"> {{ player.twitterHandle }} </a>
+	</h4>
+	<ul class="player-info">
+		<li class="player-birthdate">
+			Birthdate: {{ player.birthdate }} 
+		</li>
+		<li class="player-age">
+			Age: {{ player.age }} 
+		</li>
+		<li class="player-birthplace">
+			Birthplace {{ player.birthplace }} 
+		</li>
+		<li class="player-height">
+			Height: {{ player.height }} 
+		</li>
+		<li class="player-weight">
+			Weight: {{ player.weight }} 
+		</li>
+		<li >
+			
+		</li>
+		<li>
+			{{ player.stats.POS }}
+		</li>
+	</ul>
+</div>
