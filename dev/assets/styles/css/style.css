@@ -72,7 +72,6 @@ body {
 .player-card-left {
   text-align: center;
   width: 200px;
-  margin-left: 10px;
   vertical-align: middle; }
 
 .player-number {
@@ -81,15 +80,13 @@ body {
 
 .player-picture {
   background-color: #A5A5A5;
-  border-radius: 100%;
   border: #2D615C 8px solid;
   margin-top: 20px; }
 
 .player-card-right {
   text-align: left;
   width: 326px;
-  vertical-align: top;
-  padding-left: 10px; }
+  vertical-align: top; }
 
 .player-name {
   font-size: 1.8em;

@@ -99,7 +99,6 @@ body {
 .player-card-left {
 	text-align: center;
 	width: 200px;
-	margin-left: 10px;
 	vertical-align: middle;
 }
 
@@ -110,7 +109,7 @@ body {
 
 .player-picture {
 	background-color: #A5A5A5;
-    border-radius: 100%;
+    // border-radius: 100%;
     border: $banner-color 8px solid;
     // box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
     margin-top: 20px;
@@ -120,7 +119,7 @@ body {
 	text-align: left;
 	width: 326px;
 	vertical-align: top;
-	padding-left: 10px;
+	// padding-left: 10px;
 }
 
 .player-name {
