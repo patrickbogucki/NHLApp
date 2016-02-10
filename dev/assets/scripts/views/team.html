@@ -1,10 +1,10 @@
-<h1>{{ teamName }}</h1>
+<h1>{{ teamName }} 2015/2016 Roster Stats</h1>
 <a ng-href="#/">Go Back To Teams List</a>
 <div>{{ selectedTeam.name }}</div>
 <h2>Goalies</h2>
 <div class="goalies">
 	<div class="player-card" ng-repeat="player in teamRoster.goalie">
-	<my-player-info player="player" get-player-stats="getPlayerStats(playerID)"></my-player-info>
+	<my-player-info-goalie player="player" get-player-stats="getPlayerStats(playerID)"></my-player-info-goalie>
 	</div>
 </div>
 <h2>Forwards</h2>

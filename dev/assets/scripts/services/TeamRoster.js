@@ -6,6 +6,11 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
     	return $http.get('/api/teamRoster/' + $routeParams.teamID);
     };
 
+    this.teamID = function() {
+    	console.log($routeParams.teamID);
+    	return $routeParams.teamID;
+    };
+
     var teamStats = [];
 
     var playerNull = {};
@@ -17,7 +22,7 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
 			teamStats = [];
 			var player;
 			var goalieCategories = data.data.goalieCategories.split(', ');
-			console.log(goalieCategories);
+			// console.log(goalieCategories);
 			var arrayGoalies = data.data.goalieData;
 			for (var indexGoalies = 0; indexGoalies < arrayGoalies.length; indexGoalies++) {
 				goalieData = arrayGoalies[indexGoalies].data.split(', ');
@@ -30,7 +35,7 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
 			}
 			
 			var skaterCategories = data.data.skaterCategories.split(', ');
-			console.log(skaterCategories);
+			// console.log(skaterCategories);
 			var arraySkater = data.data.skaterData;
 			for (var indexSkater = 0; indexSkater < arraySkater.length; indexSkater++) {
 				skaterData = arraySkater[indexSkater].data.split(', ');
@@ -41,10 +46,10 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
 				player.id = arraySkater[indexSkater].id;
 				teamStats.push(player);
 			}
-			console.log(teamStats);
+			// console.log(teamStats);
 		})
 		.catch(function(error) {
-			console.log(error);
+			// console.log(error);
 		});
 	};
 
@@ -52,11 +57,11 @@ app.factory('teamRoster', ['$http', '$routeParams', function($http, $routeParams
 	this.getPlayerStats = function(playerID) {
 		for (var index = 0; index < teamStats.length; index++) {
 			if(teamStats[index].id === playerID) {
-				console.log("Found player");
+				// console.log("Found player");
 				return teamStats[index];
 			}
 		}
-		console.log("Player does not exist");
+		// console.log("Player does not exist");
 		return playerNull;
 	};
 

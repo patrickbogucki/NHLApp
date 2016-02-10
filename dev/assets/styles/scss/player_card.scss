@@ -1,0 +1,72 @@
+@import "style.scss";
+
+.player-card {
+	display: inline-block;
+	background-color: #FFFFFF;
+	color: #000000;
+	width: 550px;
+	height: 570px;
+	margin: 30px 30px;
+	vertical-align: top;
+	text-align: left;
+	box-shadow: 0px 0px 40px 12px rgba(0,0,0,0.75);
+}
+
+.player-card-left,
+.player-card-right {
+	display: inline-block;
+}
+
+.player-card-left {
+	text-align: center;
+	width: 200px;
+	vertical-align: middle;
+}
+
+.player-number {
+	font-family: 'Halant', serif;
+	font-size: 5em;
+}
+
+.player-picture {
+	background-color: #A5A5A5;
+    // border-radius: 100%;
+    border: $banner-color 8px solid;
+    // box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+    margin-top: 20px;
+}
+
+.player-card-right {
+	text-align: left;
+	width: 326px;
+	vertical-align: top;
+	// padding-left: 10px;
+}
+
+.player-name {
+	font-size: 1.8em;
+	margin-bottom: 0px;
+	padding: 5px 10px;
+	background-color: $banner-color;
+	color: #FFFFFF;
+}
+
+.player-twitter {
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 30px;
+	height: 10px;
+	a {
+		color: #66757F;
+		&:hover {
+			color: #000000;
+			cursor: pointer;
+		}
+	}
+}
+
+.player-info {
+	padding: 0px 0px 0px 30px;
+	list-style: none;
+}

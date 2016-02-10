@@ -25,47 +25,48 @@
 		<li class="player-weight">
 			<b>Weight:</b> {{ player.weight }} lbs
 		</li>
-		<li class="player-">
+		<li>
+			<b>Goales Against:</b> {{ player.stats.GA }}
+		</li>
+		<li>
 			<b>Position:</b> {{ player.stats.POS || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Name:</b> {{ player.stats.NAME || "UNK"}}
-		</li>
-		<li class="player-">
+		<li>
 			<b>Games Played:</b> {{ player.stats.GP || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Goals:</b> {{ player.stats.G || "UNK"}}
+		<li>
+			<b>Wins:</b> {{ player.stats.W || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Assits:</b> {{ player.stats.A || "UNK"}}
+		<li>
+			<b>Losses:</b> {{ player.stats.L || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Points:</b> {{ player.stats.P || "UNK"}}
+		<li>
+			<b>OverTimes:</b> {{ player.stats.OT || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>+/-:</b> {{ player.stats["+/-"] || "UNK"}}
+		<li>
+			<b>Goals Against:</b> {{ player.stats.GA || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>PIM:</b> {{ player.stats.PIM || "UNK"}}
+		<li>
+			<b>Shots Against:</b> {{ player.stats.SA || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Shots:</b> {{ player.stats.S || "UNK"}}
+		<li>
+			<b>Saves:</b> {{ player.stats.Sv || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>TOI/G:</b> {{ player.stats.TOI/G || "UNK"}}
+		<li>
+			<b>Save %:</b> {{ player.stats["SV%"] || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>PP Goals:</b> {{ player.stats.PP || "UNK"}}
+		<li>
+			<b>Goals Against Average:</b> {{ player.stats.GAA || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Short Handed Goals:</b> {{ player.stats.SH || "UNK"}}
+		<li>
+			<b>Shut Outs:</b> {{ player.stats.SO || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Game Winning Goals:</b> {{ player.stats.GWG || "UNK"}}
+		<li>
+			<b>Penalties In Minutes:</b> {{ player.stats.PIM || "UNK"}}
 		</li>
-		<li class="player-">
-			<b>Over Time Goals:</b> {{ player.stats.OT || "UNK"}}
+		<li>
+			<b>Minutes Played:</b> {{ player.stats.Min || "UNK"}}
 		</li>
+	
 	</ul>
 </div>
