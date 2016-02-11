@@ -3,7 +3,7 @@ app.controller('MainController',
  function($scope, teams, teamsDetailed, teamLogos) {
 	
 	$scope.title = "Teams";
-	$scope.predicate = '$.fullName';
+	$scope.predicate = 'fullName';
 	$scope.reverse = false;
 	$scope.order = function(predicate) {
 		$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
@@ -42,7 +42,10 @@ app.controller('MainController',
 
 	function assignFullNameandIDToTeamsWithStats(arrayTeamsWithStats, teamsData) {
 		for  (var indexTeamWithStats = 0; indexTeamWithStats < arrayTeamsWithStats.length; indexTeamWithStats++) {
-			arrayTeamsWithStats[indexTeamWithStats].$.fullName = "FAIL";
+			if(arrayTeamsWithStats[indexTeamWithStats].$ !== undefined) {
+				arrayTeamsWithStats[indexTeamWithStats] = arrayTeamsWithStats[indexTeamWithStats].$;
+			}
+			arrayTeamsWithStats[indexTeamWithStats].fullName = "FAIL";
 			for(var indexTeams = 0; indexTeams < teamsData.length; indexTeams++) {
 				if(teamsMatch(arrayTeamsWithStats[indexTeamWithStats], teamsData[indexTeams])) {
 					setFullNameAndID(arrayTeamsWithStats[indexTeamWithStats], teamsData[indexTeams]);
@@ -65,25 +68,25 @@ app.controller('MainController',
 	}
 
 	function teamsMatch(teamWithStats, team) {
-		return teamWithStats.$.name === team.name.substr(0, teamWithStats.$.name.length);
+		return teamWithStats.name === team.name.substr(0, teamWithStats.name.length);
 	}
 
 	function teamIsNYI(teamWithStats) {
-		return teamWithStats.$.name === NYI.name;
+		return teamWithStats.name === NYI.name;
 	}
 
 	function teamIsNYR(teamWithStats) {
-		return teamWithStats.$.name === NYR.name;
+		return teamWithStats.name === NYR.name;
 	}
 
 	function setNYFullNameAndID(teamWithStats, team) {
-		teamWithStats.$.fullName = team.fullName;
-		teamWithStats.$.teamID = team.teamID;
+		teamWithStats.fullName = team.fullName;
+		teamWithStats.teamID = team.teamID;
 	}
 
 	function setFullNameAndID(teamwithStats, team) {
-		teamwithStats.$.fullName = team.name;
-		teamwithStats.$.teamID = team.teamID;
+		teamwithStats.fullName = team.name;
+		teamwithStats.teamID = team.teamID;
 	}
 
 	getTeams();

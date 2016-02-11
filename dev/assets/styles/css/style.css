@@ -10,6 +10,11 @@ body {
   margin: 0px;
   min-width: 600px; }
 
+.main-header {
+  width: 100px;
+  text-align: center;
+  margin: 20px auto; }
+
 .banner {
   width: 100%;
   height: 40px;
