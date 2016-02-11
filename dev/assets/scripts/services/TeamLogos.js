@@ -2,7 +2,7 @@ app.factory('teamLogos', [function() {
 	this.getTeamLogoImgSrc = function(teamName) {
 		switch(teamName) {
 			case "Anaheim Ducks":
-				return "https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Anaheim_Ducks.svg/640px-Anaheim_Ducks.svg.png";
+				return "https://upload.wikimedia.org/wikipedia/en/7/72/Anaheim_Ducks.svg";
 			case "Arizona Coyotes":
 				return "https://upload.wikimedia.org/wikipedia/en/2/27/Arizona_Coyotes.svg";
 			case "Boston Bruins":

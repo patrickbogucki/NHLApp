@@ -72,6 +72,13 @@
 	list-style: none;
 }
 
+.collapsed-card {
+	height: 252px;
+	transition-duration: 0.5s;
+}
+
 .expanded-card {
 	height: 500px;
+	transition-duration: 0.5s;
 }
+

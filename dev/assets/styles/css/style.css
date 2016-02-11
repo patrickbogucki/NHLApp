@@ -1,5 +1,5 @@
 html {
-  background-color: #2b303b;
+  background-color: #1B2125;
   font-family: Helvetica, sans-serif;
   color: #FFFFFF; }
   html a {
@@ -7,12 +7,13 @@ html {
     text-decoration: none; }
 
 body {
-  margin: 0px; }
+  margin: 0px;
+  min-width: 600px; }
 
 .banner {
   width: 100%;
   height: 40px;
-  background-color: #2D615C; }
+  background-color: #444C4B; }
 
 .container {
   width: 100%; }
@@ -23,10 +24,10 @@ body {
 .team {
   display: inline-block;
   position: relative;
-  width: 300px;
+  width: 550px;
   height: 150px;
   margin: 20px;
-  background-color: #39495f;
+  background-color: #E0E0E0;
   overflow: hidden; }
   .team img {
     position: absolute;
@@ -34,22 +35,37 @@ body {
     top: 0;
     width: 100%;
     height: 172.5px;
-    opacity: 0.6; }
+    z-index: 100; }
   .team:hover img {
     opacity: 1; }
 
 .team-name {
   position: absolute;
-  bottom: 15px;
+  bottom: 50%;
   right: 0px;
   padding-right: 20px;
-  font-size: 18pt;
+  font-size: 2em;
   width: 100%;
-  background-color: #2D615C;
+  background-color: #444C4B;
   text-align: right; }
 
 .team-stats {
   position: absolute;
-  bottom: 0px;
+  bottom: 20%;
   right: 20px;
-  font-size: 10pt; }
+  font-size: 1em;
+  color: #000000; }
+
+.search-players {
+  padding-top: 20px; }
+
+.btn-primary {
+  font-size: 1em;
+  background-color: #FFFFFF;
+  padding: 6px;
+  margin: 10px;
+  color: #000000; }
+  .btn-primary a {
+    color: #000000; }
+  .btn-primary:hover {
+    background-color: #C3C2C2; }
