@@ -3,19 +3,19 @@
 <div>{{ selectedTeam.name }}</div>
 <h2>Goalies</h2>
 <div class="goalies">
-	<div class="player-card" ng-repeat="player in teamRoster.goalie">
+	<div class="player-card" ng-repeat="player in teamRoster.goalie" ng-class="{'expanded-card': $index == selectedGoalieIndex}" ng-click="goalieCardClicked($index)">
 	<my-player-info-goalie player="player" get-player-stats="getPlayerStats(playerID)"></my-player-info-goalie>
 	</div>
 </div>
 <h2>Forwards</h2>
-<div class="forewards">
-	<div class="player-card" ng-repeat="player in teamRoster.forwards">
+<div class="forwards">
+	<div class="player-card" ng-repeat="player in teamRoster.forwards" ng-class="{'expanded-card': $index == selectedForwardIndex}" ng-click="forwardCardClicked($index)">
 		<my-player-info player="player"></my-player-info>
 	</div>
 </div>
 <h2>Defensemen</h2>
 <div class="defensemen">
-	<div class="player-card" ng-repeat="player in teamRoster.defensemen">
+	<div class="player-card" ng-repeat="player in teamRoster.defensemen" ng-class="{'expanded-card': $index == selectedDefensemanIndex}" ng-click="defensemenCardClicked($index)">
 		<my-player-info player="player"></my-player-info>	
 	</div>
 </div>

@@ -5,7 +5,8 @@
 	background-color: #FFFFFF;
 	color: #000000;
 	width: 550px;
-	height: 570px;
+	height: 252px;
+	overflow: hidden;
 	margin: 30px 30px;
 	vertical-align: top;
 	text-align: left;
@@ -69,4 +70,8 @@
 .player-info {
 	padding: 0px 0px 0px 30px;
 	list-style: none;
+}
+
+.expanded-card {
+	height: 500px;
 }

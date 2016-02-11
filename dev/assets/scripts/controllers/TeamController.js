@@ -3,6 +3,40 @@ app.controller('TeamController', ['$scope', '$location', 'teams', 'teamRoster',
 
 	$scope.teamName = "";
 
+	$scope.selectedGoalieIndex = undefined;
+	$scope.selectedForwardIndex = undefined;
+	$scope.selectedDefensemanIndex = undefined;
+
+ 	$scope.goalieCardClicked = function ($index) {
+ 		$scope.selectedForwardIndex = undefined;
+		$scope.selectedDefensemanIndex = undefined;
+		if ($scope.selectedGoalieIndex === $index) {
+			$scope.selectedGoalieIndex = undefined;
+		} else {
+			$scope.selectedGoalieIndex = $index;
+		}
+  	};
+
+  	$scope.forwardCardClicked = function ($index) {
+ 		$scope.selectedGoalieIndex = undefined;
+		$scope.selectedDefensemanIndex = undefined;
+		if ($scope.selectedForwardIndex === $index) {
+			$scope.selectedForwardIndex = undefined;
+		} else {
+			$scope.selectedForwardIndex = $index;
+		}
+  	};
+
+  	$scope.defensemenCardClicked = function ($index) {
+ 		$scope.selectedForwardIndex = undefined;
+		$scope.selectedGoalieIndex = undefined;
+		if ($scope.selectedDefensemanIndex === $index) {
+			$scope.selectedDefensemanIndex = undefined;
+		} else {
+			$scope.selectedDefensemanIndex = $index;
+		}
+  	};
+
 	setTeamName();
 
 	function setTeamName() {
