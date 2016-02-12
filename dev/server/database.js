@@ -30,5 +30,3 @@ exports.addUser = function(userName) {
             done();
         });
 };
-
-pgp.end();
