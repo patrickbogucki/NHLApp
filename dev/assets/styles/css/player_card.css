@@ -26,6 +26,21 @@ body {
 .content {
   text-align: center; }
 
+.form-conferences {
+  display: inline-block; }
+
+.form-sort {
+  display: inline-block; }
+
+.sort-teams {
+  padding-top: 20px; }
+
+.header-sort {
+  display: inline-block; }
+
+.sort-buttons {
+  display: inline-block; }
+
 .team {
   display: inline-block;
   position: relative;
@@ -54,9 +69,15 @@ body {
   background-color: #444C4B;
   text-align: right; }
 
+.team-location {
+  color: #000000;
+  position: absolute;
+  right: 20px;
+  bottom: 20%; }
+
 .team-stats {
   position: absolute;
-  bottom: 20%;
+  bottom: 0px;
   right: 20px;
   font-size: 1em;
   color: #000000; }
@@ -86,6 +107,8 @@ body {
   vertical-align: top;
   text-align: left;
   box-shadow: 0px 0px 40px 12px rgba(0, 0, 0, 0.75); }
+  .player-card:hover {
+    cursor: pointer; }
 
 .player-card-left,
 .player-card-right {

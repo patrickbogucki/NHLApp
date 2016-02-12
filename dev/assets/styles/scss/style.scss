@@ -53,6 +53,30 @@ body {
 	text-align: center;
 }
 
+.header-filter {
+	// display: inline-block;
+}
+
+.form-conferences {
+	display: inline-block;
+}
+
+.form-sort {
+	display: inline-block;
+}
+
+.sort-teams {
+	padding-top: 20px;
+}
+
+.header-sort {
+	display: inline-block;
+}
+
+.sort-buttons {
+	display: inline-block;
+}
+
 .team {
 	display: inline-block;
 	position: relative;
@@ -88,9 +112,16 @@ body {
 	text-align: right;
 }
 
+.team-location {
+	color:#000000;
+	position: absolute;
+	right: 20px;
+	bottom: 20%;
+}
+
 .team-stats {
 	position: absolute;
-	bottom: 20%;
+	bottom: 0px;
 	right: 20px;
 	font-size: 1em;
 	color: #000000;

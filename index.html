@@ -16,13 +16,7 @@
 	<div class="main-header">
 		<img class="nhl-logo" src="https://upload.wikimedia.org/wikipedia/en/3/3a/05_NHL_Shield.svg">
 	</div>
-
-	<div class="banner">
-		<p>
-			Today's games:
-		</p>
-	</div>
-
+	
 	<div class="container">
 		<div ng-view></div>
 	</div>
@@ -47,5 +41,9 @@
 	<script src="./dev/assets/scripts/directives/myPlayerInfoGoalie.js"></script>
 	<!-- <script src="./dev/assets/scripts/directives/onErrorSrc.js"></script> -->
 	
+	<!-- Filters -->
+	<script src="./dev/assets/scripts/filters/ByConference.js"></script>
+	<script src="./dev/assets/scripts/filters/ByDivision.js"></script>
+
 </body>
 </html>

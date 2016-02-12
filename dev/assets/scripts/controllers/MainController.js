@@ -4,6 +4,16 @@ app.controller('MainController',
 	
 	$scope.title = "Teams";
 	$scope.predicate = 'fullName';
+	$scope.conferences = {
+		'Western': true,
+		'Eastern': true
+	};
+	$scope.divisions = {
+		'Atlantic': true,
+		'Central': true,
+		'Metropolitan': true,
+		'Pacific': true
+	};
 	$scope.reverse = false;
 	$scope.order = function(predicate) {
 		$scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
@@ -12,7 +22,6 @@ app.controller('MainController',
 	$scope.getTeamLogoImgSrc = function (teamName) {
 		return teamLogos.getTeamLogoImgSrc(teamName);
 	};
-
 
 	var NYI = {
 		name : "NY Islanders",

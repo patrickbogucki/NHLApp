@@ -1,28 +1,28 @@
-<h2>{{ title }}</h2>
-
 <div class="content">
-	<h2>FILTER BY:</h2>
-	<form name="conferences">
-		<label>Western:<input type="checkbox" ng-model="western['conference-name']" ng-true-value="'Western'" ng-false-value=""></label>
-		<label>Eastern:<input type="checkbox" ng-model="eastern['conference-name']" ng-true-value="'Eastern'" ng-false-value=""></label>
+	<h2 class="header-filter">FILTER BY:</h2>
+	<form name="conferences-checkboxes" class="form-conferences">
+		<label>Western:<input type="checkbox" ng-model="conferences.Western"></label>
+		<label>Eastern:<input type="checkbox" ng-model="conferences.Eastern" ng-init="conferences.Eastern = true"></label>
 	</form>
-	<form name="divisions">
-		<label>Atlantic<input type="checkbox" ng-model="atlantic['division-name']" ng-true-value="'Atlantic'" ng-false-value=""></label>
-		<label>Central<input type="checkbox" ng-model="central['division-name']" ng-true-value="'Central'" ng-false-value=""></label>
-		<label>Metropolitan<input type="checkbox" ng-model="metropolitan['division-name']" ng-true-value="'Metropolitan'" ng-false-value=""></label>
-		<label>Pacific<input type="checkbox" ng-model="pacific['division-name']" ng-true-value="'Pacific'" ng-false-value=""></label>
+	<form name="divisions-checkboxes" class="form-divisions">
+		<label>Pacific<input type="checkbox" ng-model="divisions.Pacific"></label>
+		<label>Central<input type="checkbox" ng-model="divisions.Central"></label>
+		<label>Metropolitan<input type="checkbox" ng-model="divisions.Metropolitan"></label>
+		<label>Atlantic<input type="checkbox" ng-model="divisions.Atlantic"></label>
 	</form>
 
-	<h2>SORT BY:</h2>
-	<div>
-		<button ng-click="order('fullName')">NAME</button>	
-		<button ng-click="order('-wins')">WINS</button>	
-		<button ng-click="order('-points')">POINTS</button>
+	<div class="sort-teams">
+		<h2 class="header-sort">SORT BY:</h2>
+		<div class="sort-buttons">
+			<button class="btn-primary" ng-click="order('fullName')">NAME</button>	
+			<button class="btn-primary" ng-click="order('-wins')">WINS</button>	
+			<button class="btn-primary" ng-click="order('-points')">POINTS</button>
+		</div>
 	</div>
-	<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teamsWithStats | orderBy:predicate:reverse | filter:western['conference-name'] |filter:eastern['conference-name'] | filter: atlantic['division-name'] | filter: central['division-name'] | filter: metropolitan['division-name'] | filter: pacific['division-name']"> 
+	<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teamsWithStats | orderBy:predicate:reverse | byConference:conferences | byDivision:divisions"> 
 		<img ng-src="{{ getTeamLogoImgSrc(team.fullName) }}">
 		<div class="team-name">{{ team.fullName }}</div>
-		<br> 
-		<div class="team-stats">W: {{ team.wins }} L: {{ team.losses }} OT: {{ team.overtime }} PTS: {{ team.points }} {{ team['conference-name'] }}</div>
+		<p class="team-location"><b>Conf:</b> {{ team['conference-name'] }} <b>Div: </b> {{ team['division-name'] }}</p>
+		<p class="team-stats"><b>W:</b> {{ team.wins }} <b>L:</b> {{ team.losses }} <b>OT:</b> {{ team.overtime }} <b>PTS:</b> {{ team.points }}</p>
 	</a>	
 </div>
