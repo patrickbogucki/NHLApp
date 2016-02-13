@@ -41,9 +41,9 @@ app.controller('TeamController', ['$scope', '$location', 'teams', 'teamRoster',
 
 	function setTeamName() {
 		teams.then(function(teamData) {
-			for(var team of teamData.data) {
-				if(teamRoster.teamID() === team.teamID) {
-					$scope.teamName = team.name;
+			for(var index = 0; index < teamData.data.length; index++) {
+				if(teamRoster.teamID() === teamData.data[index].teamID) {
+					$scope.teamName = teamData.data[index].name;
 					break;
 				}
 			}

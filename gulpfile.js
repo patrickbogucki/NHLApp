@@ -1,6 +1,11 @@
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
+var inject = require('gulp-inject');
+var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
+var uglify = require('gulp-uglify');
+var rename = require("gulp-rename");
 var browserSync = require('browser-sync');
 var nodemon  = require('gulp-nodemon');
 
@@ -31,10 +36,6 @@ gulp.task('styles', function(){
     .pipe(browserSync.reload({stream:true}));
 });
 
-gulp.task('deploy', function() {
-	// minify, uglify, concatenate, move files
-	});
-
 // Reloads server when any updates occur
 // in the server folder. Then reloads the
 // browser after some time
@@ -59,11 +60,47 @@ gulp.task('nodemon', function (cb) {
   });
 });
 
+gulp.task('deploy', function() {
+  //Concat, minify, and rename CSS file
+  gulp.src(['./dev/assets/styles/css/*.css']) 
+  .pipe(concat('style.css'))
+  .pipe(cssnano())
+  .pipe(rename({extname: ".min.css"}))
+  .pipe(gulp.dest('./dist/assets/styles'));
+
+  // Concat, uglify and rename JS files
+  gulp.src(['./dev/assets/scripts/app.js', './dev/assets/scripts/**/*.js'])
+  .pipe(concat('script.js'))
+  .pipe(uglify())
+  .pipe(rename({extname: ".min.js"}))
+  .pipe(gulp.dest('./dist/assets/scripts'));
+
+  // Inject minified CSS and JS files into dist index file
+  var injectSources = gulp.src(['./dist/assets/**/*.css', './dist/assets/**/*.js'], {read: false});
+  gulp.src(['./dev/index.html'])
+  .pipe(inject(injectSources))
+  .pipe(gulp.dest('./dist'));
+
+  // Move files that don't need to be changed to appropriate areas
+  gulp.src(['./dev/assets/scripts/templates/**'])
+  .pipe(gulp.dest('./dist/assets/scripts/templates'));  
+
+  gulp.src(['./dev/assets/scripts/views/**'])
+  .pipe(gulp.dest('./dist/assets/scripts/views'));
+
+  gulp.src(['./dev/server/**'])
+  .pipe(gulp.dest('./dist/server'));
+
+  gulp.src(['./dev/assets/favicon/**'])
+  .pipe(gulp.dest('./dist/assets/favicon'));
+
+});
+
 // Watches only client side files and reloads browser
 // if there are any changes
 gulp.task('default', ['browser-sync'], function(){
   gulp.watch("./dev/assets/**/*.html", ['bs-reload']);
   gulp.watch("./dev/assets/**/*.scss", ['styles']);
   gulp.watch("./dev/assets/**/*.js", ['bs-reload']);
-  gulp.watch("*.html", ['bs-reload']);
+  gulp.watch("./dev/*.html", ['bs-reload']);
 });

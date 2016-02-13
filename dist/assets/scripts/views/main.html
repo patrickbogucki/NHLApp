@@ -1,0 +1,28 @@
+<div class="content">
+	<h2 class="header-filter">FILTER BY:</h2>
+	<form name="conferences-checkboxes" class="form-conferences">
+		<label>Western:<input type="checkbox" ng-model="conferences.Western"></label>
+		<label>Eastern:<input type="checkbox" ng-model="conferences.Eastern" ng-init="conferences.Eastern = true"></label>
+	</form>
+	<form name="divisions-checkboxes" class="form-divisions">
+		<label>Pacific<input type="checkbox" ng-model="divisions.Pacific"></label>
+		<label>Central<input type="checkbox" ng-model="divisions.Central"></label>
+		<label>Metropolitan<input type="checkbox" ng-model="divisions.Metropolitan"></label>
+		<label>Atlantic<input type="checkbox" ng-model="divisions.Atlantic"></label>
+	</form>
+
+	<div class="sort-teams">
+		<h2 class="header-sort">SORT BY:</h2>
+		<div class="sort-buttons">
+			<button class="btn-primary" ng-click="order('fullName')">NAME</button>	
+			<button class="btn-primary" ng-click="order('-wins')">WINS</button>	
+			<button class="btn-primary" ng-click="order('-points')">POINTS</button>
+		</div>
+	</div>
+	<a  ng-href="#/{{ team.teamID }}" class="team" ng-repeat="team in teamsWithStats | orderBy:predicate:reverse | byConference:conferences | byDivision:divisions"> 
+		<img ng-src="{{ getTeamLogoImgSrc(team.fullName) }}">
+		<div class="team-name">{{ team.fullName }}</div>
+		<p class="team-location"><b>Conf:</b> {{ team['conference-name'] }} <b>Div: </b> {{ team['division-name'] }}</p>
+		<p class="team-stats"><b>W:</b> {{ team.wins }} <b>L:</b> {{ team.losses }} <b>OT:</b> {{ team.overtime }} <b>PTS:</b> {{ team.points }}</p>
+	</a>	
+</div>

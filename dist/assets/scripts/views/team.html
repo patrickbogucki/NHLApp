@@ -1,0 +1,24 @@
+<h1>{{ teamName }} 2015/2016 Roster Stats</h1>
+<h2>*Click a player's card to expand it and show their stats.*</h2>
+<a class="btn btn-primary" ng-href="#/">Go Back To Teams List</a>
+<form class="search-players">
+	<label>Search Players:</label><input type="text" ng-model="searchPlayers.name"></input>
+</form>
+<h2>Goalies</h2>
+<div class="goalies">
+	<div class="player-card collapsed-card" ng-repeat="player in teamRoster.goalie | filter:searchPlayers" ng-class="{'expanded-card': $index == selectedGoalieIndex}" ng-click="goalieCardClicked($index)">
+	<my-player-info-goalie player="player" get-player-stats="getPlayerStats(playerID)"></my-player-info-goalie>
+	</div>
+</div>
+<h2>Forwards</h2>
+<div class="forwards">
+	<div class="player-card collapsed-card" ng-repeat="player in teamRoster.forwards | filter:searchPlayers" ng-class="{'expanded-card': $index == selectedForwardIndex}" ng-click="forwardCardClicked($index)">
+		<my-player-info player="player"></my-player-info>
+	</div>
+</div>
+<h2>Defensemen</h2>
+<div class="defensemen">
+	<div class="player-card collapsed-card" ng-repeat="player in teamRoster.defensemen | filter:searchPlayers" ng-class="{'expanded-card': $index == selectedDefensemanIndex}" ng-click="defensemenCardClicked($index)">
+		<my-player-info player="player"></my-player-info>	
+	</div>
+</div>
