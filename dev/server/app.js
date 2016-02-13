@@ -53,7 +53,7 @@ app.get('/*', function(req, res, next) {
 	res.send("Nothing here");
 });
 
-app.listen(80, function () {
+app.listen(3000, function () {
 	console.log('Example app listening on port 3000');
 });
 
