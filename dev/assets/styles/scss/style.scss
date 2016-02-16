@@ -4,15 +4,38 @@ $banner-color: #444C4B;
 $team-banner-color: #444C4B;
 $font-stack: Helvetica, sans-serif;
 $team-width: 300px;
-$team-height: 150px;
+$team-height: 100px;
 
-$card-width: 550px;
-$card-height: 150px;
+$card-width: 300px;
+$card-height: 100px;
 
 $team-margin: 20px;
 $teams-per-row: 4;
 // $team-container-width: ($team-width * $teams-per-row) + ($team-margin * (2 * $teams-per-row));
 $team-container-width: 100%;
+
+// Media Query related
+$phone-width: 360px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+	@media (min-width: #{$phone-width} and (max-width:  #{tablet-width - 1px})) {
+		@content;
+	}
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
 
 html {
 	background-color:  $bg-color;
@@ -26,7 +49,6 @@ html {
 
 body {
 	margin: 0px;
-	min-width: 600px;
 }
 
 .main-header {
@@ -87,10 +109,10 @@ body {
 	overflow: hidden;
 	img {
 		position: absolute;
-		left: -30%;
+		left: -35%;
 		top: 0;
 		width: 100%;
-		height: $team-height * 1.15;
+		height: $team-height;
 		// opacity: 0.8;
 		z-index: 100;
 	}
@@ -106,7 +128,7 @@ body {
 	bottom: 50%;
 	right: 0px;
 	padding-right: 20px;
-	font-size: 2em;
+	font-size: 1.1em;
 	width: 100%;
 	background-color: $team-banner-color;
 	text-align: right;
@@ -117,13 +139,14 @@ body {
 	position: absolute;
 	right: 20px;
 	bottom: 20%;
+	font-size: 0.8em;
 }
 
 .team-stats {
 	position: absolute;
 	bottom: 0px;
 	right: 20px;
-	font-size: 1em;
+	font-size: 0.8em;
 	color: #000000;
 	// padding-bottom: 10px;
 }
