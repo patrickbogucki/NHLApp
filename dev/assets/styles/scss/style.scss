@@ -14,28 +14,18 @@ $teams-per-row: 4;
 // $team-container-width: ($team-width * $teams-per-row) + ($team-margin * (2 * $teams-per-row));
 $team-container-width: 100%;
 
-// Media Query related
-$phone-width: 360px;
-$tablet-width: 768px;
-$desktop-width: 1024px;
+// Media Query related--------------
+// Breakpoints
+$bp1-width: 360px;
 
-@mixin phone {
-	@media (min-width: #{$phone-width} and (max-width:  #{tablet-width - 1px})) {
+// Mixins
+@mixin bp1 {
+	@media (min-width: #{$bp1-width + 1px}) {
 		@content;
 	}
 }
 
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
+// --------------
 
 html {
 	background-color:  $bg-color;
@@ -52,13 +42,21 @@ body {
 }
 
 .main-header {
-	width: 100px;
-	text-align: center;
-	margin: 20px auto;
-
+	width: 100%;
+	text-align: left;
+	background-color: #000000;
+	@include bp1 {
+		background-color: $bg-color;
+		margin: 20px auto;
+		text-align: center;
+	}
 }
 
 .nhl-logo {
+	width: 30px;
+	@include bp1 {
+		width: 80px;
+	}
 }
 
 .banner {
@@ -75,12 +73,41 @@ body {
 	text-align: center;
 }
 
+.filter-icon,
+.sort-icon {
+	display: inline-block;
+	margin: 20px 30px 0px 30px;
+	@include bp1 {
+		display: none;
+	}
+}
+
 .header-filter {
-	// display: inline-block;
+	display: none;
+	@include bp1 {
+		display: block;
+	}
+}
+
+.filter-checkboxes {
+	@include bp1 {
+		display: inline-block;
+	}
 }
 
 .form-conferences {
-	display: inline-block;
+	
+}
+
+.form-divisions {
+	
+}
+
+.hidden-responsive {
+	display: none;
+	@include bp1 {
+		display: inline-block;
+	}
 }
 
 .form-sort {
@@ -89,14 +116,22 @@ body {
 
 .sort-teams {
 	padding-top: 20px;
+	@include bp1 {
+		display: block;
+	}
 }
 
 .header-sort {
-	display: inline-block;
+	display: none;
+	@include bp1 {
+		display: inline-block;
+	}
 }
 
 .sort-buttons {
-	display: inline-block;
+	@include bp1 {
+		display: inline-block;
+	}
 }
 
 .team {
@@ -152,12 +187,15 @@ body {
 }
 
 .search-players {
-	padding-top: 20px;
+	@include bp1 {
+		padding-top: 20px;
+	}
 }
 
 .btn-primary {
-	font-size: 1em;
+	font-size: 0.7em;
 	background-color: #FFFFFF;
+	border-radius: 6px;
 	padding: 6px;
 	margin: 10px;
 	color: #000000;
@@ -167,4 +205,10 @@ body {
 	&:hover {
 		background-color: #C3C2C2;
 	}
+}
+
+.credits-header,
+.credits {
+	width: 100%;
+	text-align: center;
 }

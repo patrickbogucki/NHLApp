@@ -7,15 +7,15 @@
 	color: #000000;
 	width: 340px;
 	overflow: hidden;
-	margin: 30px 30px;
+	margin: 10px;
 	vertical-align: top;
 	text-align: left;
 	box-shadow: 0px 0px 40px 12px rgba(0,0,0,0.75);
 	&:hover {
 		cursor: pointer;
 	}
-	@media (max-width: 360px) { 
-		margin: 10px;
+	@include bp1 {
+		margin: 30px 30px;
 	}
 }
 

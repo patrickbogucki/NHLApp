@@ -10,9 +10,20 @@ body {
   margin: 0px; }
 
 .main-header {
-  width: 100px;
-  text-align: center;
-  margin: 20px auto; }
+  width: 100%;
+  text-align: left;
+  background-color: #000000; }
+  @media (min-width: 361px) {
+    .main-header {
+      background-color: #1B2125;
+      margin: 20px auto;
+      text-align: center; } }
+
+.nhl-logo {
+  width: 30px; }
+  @media (min-width: 361px) {
+    .nhl-logo {
+      width: 80px; } }
 
 .banner {
   width: 100%;
@@ -25,20 +36,49 @@ body {
 .content {
   text-align: center; }
 
-.form-conferences {
-  display: inline-block; }
+.filter-icon,
+.sort-icon {
+  display: inline-block;
+  margin: 20px 30px 0px 30px; }
+  @media (min-width: 361px) {
+    .filter-icon,
+    .sort-icon {
+      display: none; } }
+
+.header-filter {
+  display: none; }
+  @media (min-width: 361px) {
+    .header-filter {
+      display: block; } }
+
+@media (min-width: 361px) {
+  .filter-checkboxes {
+    display: inline-block; } }
+
+.hidden-responsive {
+  display: none; }
+  @media (min-width: 361px) {
+    .hidden-responsive {
+      display: inline-block; } }
 
 .form-sort {
   display: inline-block; }
 
 .sort-teams {
   padding-top: 20px; }
+  @media (min-width: 361px) {
+    .sort-teams {
+      display: block; } }
 
 .header-sort {
-  display: inline-block; }
+  display: none; }
+  @media (min-width: 361px) {
+    .header-sort {
+      display: inline-block; } }
 
-.sort-buttons {
-  display: inline-block; }
+@media (min-width: 361px) {
+  .sort-buttons {
+    display: inline-block; } }
 
 .team {
   display: inline-block;
@@ -82,12 +122,14 @@ body {
   font-size: 0.8em;
   color: #000000; }
 
-.search-players {
-  padding-top: 20px; }
+@media (min-width: 361px) {
+  .search-players {
+    padding-top: 20px; } }
 
 .btn-primary {
-  font-size: 1em;
+  font-size: 0.7em;
   background-color: #FFFFFF;
+  border-radius: 6px;
   padding: 6px;
   margin: 10px;
   color: #000000; }
@@ -96,6 +138,11 @@ body {
   .btn-primary:hover {
     background-color: #C3C2C2; }
 
+.credits-header,
+.credits {
+  width: 100%;
+  text-align: center; }
+
 .player-card {
   display: inline-block;
   background-color: #FFFFFF;
@@ -103,15 +150,15 @@ body {
   color: #000000;
   width: 340px;
   overflow: hidden;
-  margin: 30px 30px;
+  margin: 10px;
   vertical-align: top;
   text-align: left;
   box-shadow: 0px 0px 40px 12px rgba(0, 0, 0, 0.75); }
   .player-card:hover {
     cursor: pointer; }
-  @media (max-width: 360px) {
+  @media (min-width: 361px) {
     .player-card {
-      margin: 10px; } }
+      margin: 30px 30px; } }
 
 .player-card-left,
 .player-card-right {

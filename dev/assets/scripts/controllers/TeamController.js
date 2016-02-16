@@ -91,5 +91,8 @@ app.controller('TeamController', ['$scope', '$location', 'teams', 'teamRoster',
 			console.log("TeamController - addStatsToPlayer FAILED");
 		});
 	}
+	var searchBar =  document.getElementsByClassName("search-players")[0];
+	window.scroll(0, 200);	
+	console.log("scroll top:" + searchBar.scrollTop);
 
 }]);

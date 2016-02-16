@@ -4,6 +4,8 @@ app.controller('MainController',
 	
 	$scope.title = "Teams";
 	$scope.predicate = 'fullName';
+	$scope.filterToggle = true;
+	$scope.sortToggle = true;
 	$scope.conferences = {
 		'Western': true,
 		'Eastern': true
