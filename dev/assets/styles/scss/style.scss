@@ -3,8 +3,8 @@ $bg-color-team: #E0E0E0;
 $banner-color: #444C4B;
 $team-banner-color: #444C4B;
 $font-stack: Helvetica, sans-serif;
-$team-width: 300px;
-$team-height: 100px;
+$team-width: 100px;
+$team-height: 70px;
 
 $card-width: 300px;
 $card-height: 100px;
@@ -144,11 +144,9 @@ body {
 	overflow: hidden;
 	img {
 		position: absolute;
-		left: -35%;
-		top: 0;
-		width: 100%;
 		height: $team-height;
-		// opacity: 0.8;
+		top: 50%;
+		transform: translate(-145px, -50%);
 		z-index: 100;
 	}
 	&:hover {
